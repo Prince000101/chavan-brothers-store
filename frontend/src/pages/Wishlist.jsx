@@ -75,11 +75,11 @@ function Wishlist() {
               <div key={product._id} className="overflow-hidden rounded-[28px] bg-white dark:bg-charcoal-light shadow-sm border border-sand/20 dark:border-forest-light/30 transition hover:shadow-xl">
                 <img src={product.image} alt={product.name} loading="lazy" decoding="async" className="h-56 w-full object-cover" />
                 <div className="p-6">
-                  <h2 className="font-playfair text-2xl text-forest dark:text-cream">{product.name}</h2>
-                  <p className="mt-1 text-sm text-forest font-dm">{product.category}</p>
-                  <p className="mt-2 text-xl font-bold text-forest dark:text-sage">₹{product.price}</p>
+                  <h2 className="font-playfair text-2xl text-charcoal dark:text-cream">{product.name}</h2>
+                  <p className="mt-1 text-sm text-smoke font-dm">{product.category}</p>
+                  <p className="mt-2 text-xl font-bold text-spice dark:text-cream">₹{product.price}</p>
                   <div className="mt-5 flex gap-3">
-                    <button onClick={() => handleAddToCart(product)} className="flex-1 rounded-xl bg-forest px-4 py-3 font-dm font-semibold text-cream transition hover:bg-forest-light flex items-center justify-center gap-2">
+                    <button onClick={() => handleAddToCart(product)} className="flex-1 rounded-xl bg-spice px-4 py-3 font-dm font-semibold text-cream transition hover:bg-spice-light flex items-center justify-center gap-2">
                       <ShoppingCart size={18} /> Add to Cart
                     </button>
                     <button onClick={() => handleRemove(product._id)} className="rounded-xl bg-red-600 p-3 text-white transition hover:bg-red-700">
@@ -93,7 +93,7 @@ function Wishlist() {
         )}
 
         <div className="mt-10 text-center">
-          <Link to="/products" className="font-dm font-medium text-forest dark:text-sage hover:text-forest-light">
+          <Link to="/products" className="font-dm font-medium text-spice dark:text-cream hover:text-spice-light">
             Continue Shopping →
           </Link>
         </div>

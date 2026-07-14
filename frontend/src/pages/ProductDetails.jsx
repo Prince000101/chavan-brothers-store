@@ -112,7 +112,7 @@ function ProductDetails() {
 
   if (loading) return <SkeletonLoader />;
   if (error) return <div className="flex min-h-screen items-center justify-center text-red-500 text-2xl font-bold">{error}</div>;
-  if (!product) return <div className="flex min-h-screen items-center justify-center text-2xl font-bold text-forest">Product not found</div>;
+  if (!product) return <div className="flex min-h-screen items-center justify-center text-2xl font-bold text-spice">Product not found</div>;
 
   return (
     <div className="min-h-screen pb-16 sm:pb-20 transition-colors duration-500">
@@ -125,16 +125,16 @@ function ProductDetails() {
         type="product"
         ld={productLd}
       />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-4 sm:py-6 text-xs sm:text-sm text-forest flex items-center gap-1 sm:gap-2 font-dm flex-wrap">
-        <Link to="/" className="hover:text-forest dark:hover:text-sand">Home</Link> <ChevronRight size={14} />
-        <Link to="/products" className="hover:text-forest dark:hover:text-sand">Shop</Link> <ChevronRight size={14} />
-        <span className="text-forest dark:text-cream font-medium truncate">{product.name}</span>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-4 sm:py-6 text-xs sm:text-sm text-spice flex items-center gap-1 sm:gap-2 font-dm flex-wrap">
+        <Link to="/" className="hover:text-spice dark:hover:text-turmeric">Home</Link> <ChevronRight size={14} />
+        <Link to="/products" className="hover:text-spice dark:hover:text-turmeric">Shop</Link> <ChevronRight size={14} />
+        <span className="text-spice dark:text-cream font-medium truncate">{product.name}</span>
       </div>
 
       <div className="mx-auto grid max-w-7xl gap-8 sm:gap-12 px-4 sm:px-6 lg:grid-cols-2">
         {/* LEFT - GALLERY */}
         <div className="flex flex-col gap-3 sm:gap-4 lg:sticky lg:top-6 lg:self-start">
-          <div className="relative flex h-[300px] sm:h-[400px] md:h-[500px] items-center justify-center overflow-hidden rounded-[20px] sm:rounded-[32px] bg-white dark:bg-charcoal-light p-4 sm:p-6 md:p-8 shadow-sm border border-sand/20 dark:border-forest-light/30 group">
+          <div className="relative flex h-[300px] sm:h-[400px] md:h-[500px] items-center justify-center overflow-hidden rounded-[20px] sm:rounded-[32px] bg-white dark:bg-charcoal-light p-4 sm:p-6 md:p-8 shadow-sm border border-spice/20 dark:border-spice/30 group">
             {currentStock < 1 && (
               <div className="absolute inset-0 z-10 flex items-center justify-center bg-cream/60 backdrop-blur-sm dark:bg-charcoal/60">
                 <span className="rounded-full bg-red-600 px-6 py-2 text-xl font-bold text-cream tracking-widest uppercase">Sold Out</span>
@@ -145,7 +145,7 @@ function ProductDetails() {
           {displayImages.length > 1 && (
             <div className="flex gap-2 sm:gap-4 overflow-x-auto py-1 sm:py-2 no-scrollbar">
               {displayImages.map((img, idx) => (
-                <button key={idx} onClick={() => setSelectedImage(idx)} className={`h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 shrink-0 overflow-hidden rounded-lg sm:rounded-xl border-2 transition-all ${selectedImage === idx ? "border-forest shadow-md" : "border-transparent opacity-60 hover:opacity-100"}`}>
+                <button key={idx} onClick={() => setSelectedImage(idx)} className={`h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 shrink-0 overflow-hidden rounded-lg sm:rounded-xl border-2 transition-all ${selectedImage === idx ? "border-spice shadow-md" : "border-transparent opacity-60 hover:opacity-100"}`}>
                   <img src={img} loading="lazy" decoding="async" className="h-full w-full object-cover bg-white dark:bg-charcoal-light" />
                 </button>
               ))}
@@ -156,28 +156,28 @@ function ProductDetails() {
         {/* RIGHT - DETAILS */}
         <div className="flex flex-col">
           <div className="flex items-center justify-between mb-3 sm:mb-4">
-            <span className={`w-fit rounded-full px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-dm font-bold uppercase tracking-wider ${currentStock > 0 ? 'bg-sage/20 text-forest dark:text-sage' : 'bg-red-100 text-red-700'}`}>
+            <span className={`w-fit rounded-full px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-dm font-bold uppercase tracking-wider ${currentStock > 0 ? 'bg-spice/20 text-spice dark:text-smoke' : 'bg-red-100 text-red-700'}`}>
               {currentStock > 0 ? "In Stock" : "Out of Stock"}
             </span>
-            <span className="text-xs sm:text-sm text-forest flex items-center gap-1 font-dm"><Star size={14} className="text-yellow-500 fill-yellow-500" /> {product.rating || 4.8} ({reviews.length} reviews)</span>
+            <span className="text-xs sm:text-sm text-spice flex items-center gap-1 font-dm"><Star size={14} className="text-yellow-500 fill-yellow-500" /> {product.rating || 4.8} ({reviews.length} reviews)</span>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-playfair font-bold tracking-tight text-forest dark:text-cream mb-4 sm:mb-6">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-playfair font-bold tracking-tight text-spice dark:text-cream mb-4 sm:mb-6">
             {product.name}
           </h1>
 
           <div className="flex items-end gap-3 sm:gap-4 mb-6 sm:mb-8 flex-wrap">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-forest dark:text-sage">₹{currentPrice}</h2>
-            <span className="text-lg sm:text-xl md:text-2xl font-medium text-sand-dark line-through mb-0.5 sm:mb-1">₹{Math.round(currentPrice * 1.25)}</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-spice dark:text-smoke">₹{currentPrice}</h2>
+            <span className="text-lg sm:text-xl md:text-2xl font-medium text-turmeric line-through mb-0.5 sm:mb-1">₹{Math.round(currentPrice * 1.25)}</span>
             <span className="rounded bg-red-100 px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs font-bold text-red-700">SAVE 25%</span>
           </div>
 
           {product.variants?.length > 0 && (
-            <div className="mb-6 sm:mb-8 border-t border-sand/20 dark:border-forest-light/30 pt-4 sm:pt-6">
-              <h3 className="text-xs sm:text-sm font-dm font-bold uppercase tracking-wider text-sage mb-3 sm:mb-4">Select Variant</h3>
+            <div className="mb-6 sm:mb-8 border-t border-spice/20 dark:border-spice/30 pt-4 sm:pt-6">
+              <h3 className="text-xs sm:text-sm font-dm font-bold uppercase tracking-wider text-smoke mb-3 sm:mb-4">Select Variant</h3>
               <div className="flex flex-wrap gap-2 sm:gap-3">
                 {product.variants.map((variant) => (
-                  <button key={variant._id || variant.name} onClick={() => { setSelectedVariant(variant); setQuantity(1); }} className={`rounded-lg sm:rounded-xl px-3 sm:px-5 py-2 sm:py-3 text-xs sm:text-sm font-dm font-semibold border-2 transition-all ${selectedVariant?.name === variant.name ? "border-forest bg-forest/5 text-forest dark:border-sage dark:bg-forest-light/20 dark:text-sage" : "border-sand/30 bg-white text-forest hover:border-sage dark:border-forest-light/30 dark:bg-charcoal-light dark:text-cream/60"}`}>
+                  <button key={variant._id || variant.name} onClick={() => { setSelectedVariant(variant); setQuantity(1); }} className={`rounded-lg sm:rounded-xl px-3 sm:px-5 py-2 sm:py-3 text-xs sm:text-sm font-dm font-semibold border-2 transition-all ${selectedVariant?.name === variant.name ? "border-forest bg-spice/5 text-spice dark:border-spice dark:bg-spice-light/20 dark:text-smoke" : "border-spice/30 bg-white text-spice hover:border-spice dark:border-spice/30 dark:bg-charcoal-light dark:text-cream/60"}`}>
                     {variant.name}
                   </button>
                 ))}
@@ -185,31 +185,31 @@ function ProductDetails() {
             </div>
           )}
 
-          <div className="lg:sticky lg:top-20 z-20 mb-6 sm:mb-8 space-y-3 sm:space-y-4 rounded-[20px] sm:rounded-[28px] bg-white dark:bg-charcoal-light p-4 sm:p-5 md:p-6 shadow-sm border border-sand/20 dark:border-forest-light/30">
+          <div className="lg:sticky lg:top-20 z-20 mb-6 sm:mb-8 space-y-3 sm:space-y-4 rounded-[20px] sm:rounded-[28px] bg-white dark:bg-charcoal-light p-4 sm:p-5 md:p-6 shadow-sm border border-spice/20 dark:border-spice/30">
             <div className="flex items-center gap-3 sm:gap-4">
-              <div className="flex h-10 sm:h-12 md:h-14 items-center rounded-lg sm:rounded-xl border-2 border-sand/30 dark:border-forest-light/30">
-                <button onClick={() => setQuantity((p) => Math.max(1, p - 1))} className="px-3 sm:px-4 md:px-5 text-base sm:text-lg md:text-xl font-bold text-forest hover:text-forest dark:hover:text-cream">-</button>
-                <span className="w-6 sm:w-8 text-center text-sm sm:text-base md:text-lg font-bold text-forest dark:text-cream">{quantity}</span>
-                <button onClick={() => setQuantity((p) => (p < currentStock ? p + 1 : p))} className="px-3 sm:px-4 md:px-5 text-base sm:text-lg md:text-xl font-bold text-forest hover:text-forest dark:hover:text-cream">+</button>
+              <div className="flex h-10 sm:h-12 md:h-14 items-center rounded-lg sm:rounded-xl border-2 border-spice/30 dark:border-spice/30">
+                <button onClick={() => setQuantity((p) => Math.max(1, p - 1))} className="px-3 sm:px-4 md:px-5 text-base sm:text-lg md:text-xl font-bold text-spice hover:text-spice dark:hover:text-cream">-</button>
+                <span className="w-6 sm:w-8 text-center text-sm sm:text-base md:text-lg font-bold text-spice dark:text-cream">{quantity}</span>
+                <button onClick={() => setQuantity((p) => (p < currentStock ? p + 1 : p))} className="px-3 sm:px-4 md:px-5 text-base sm:text-lg md:text-xl font-bold text-spice hover:text-spice dark:hover:text-cream">+</button>
               </div>
-              <button onClick={handleAddToCart} disabled={actionLoading || currentStock < 1} className="flex-1 h-10 sm:h-12 md:h-14 rounded-lg sm:rounded-xl bg-forest text-xs sm:text-sm text-cream font-dm font-bold hover:bg-forest-light disabled:opacity-50 transition-all active:scale-95 flex items-center justify-center gap-1 sm:gap-2 shadow-lg shadow-forest/20">
+              <button onClick={handleAddToCart} disabled={actionLoading || currentStock < 1} className="flex-1 h-10 sm:h-12 md:h-14 rounded-lg sm:rounded-xl bg-spice text-xs sm:text-sm text-cream font-dm font-bold hover:bg-spice-light disabled:opacity-50 transition-all active:scale-95 flex items-center justify-center gap-1 sm:gap-2 shadow-lg shadow-spice/20">
                 Add to Cart
               </button>
-              <button onClick={handleWishlistToggle} disabled={actionLoading} className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 flex items-center justify-center rounded-lg sm:rounded-xl border-2 border-sand/30 dark:border-forest-light/30 text-forest hover:bg-sand/20 dark:hover:bg-forest-light/20 transition-all active:scale-95">
+              <button onClick={handleWishlistToggle} disabled={actionLoading} className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 flex items-center justify-center rounded-lg sm:rounded-xl border-2 border-spice/30 dark:border-spice/30 text-spice hover:bg-sand/20 dark:hover:bg-spice-light/20 transition-all active:scale-95">
                 <Heart size={18} className={isWishlisted ? "fill-red-500 text-red-500" : "dark:text-cream"} />
               </button>
             </div>
-            <button onClick={handleAddToCart} disabled={actionLoading || currentStock < 1} className="w-full h-10 sm:h-12 md:h-14 rounded-lg sm:rounded-xl bg-forest-light text-cream text-xs sm:text-sm font-dm font-bold hover:bg-forest disabled:opacity-50 transition-all active:scale-95 flex items-center justify-center gap-1 sm:gap-2">
+            <button onClick={handleAddToCart} disabled={actionLoading || currentStock < 1} className="w-full h-10 sm:h-12 md:h-14 rounded-lg sm:rounded-xl bg-spice-light text-cream text-xs sm:text-sm font-dm font-bold hover:bg-spice disabled:opacity-50 transition-all active:scale-95 flex items-center justify-center gap-1 sm:gap-2">
               Buy it Now <ArrowRight size={16} />
             </button>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 py-4 sm:py-6 border-y border-sand/20 dark:border-forest-light/30">
-            <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-forest font-dm">
-              <Truck className="text-forest shrink-0" size={18} /> <span>Free Shipping over ₹500</span>
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 py-4 sm:py-6 border-y border-spice/20 dark:border-spice/30">
+            <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-spice font-dm">
+              <Truck className="text-spice shrink-0" size={18} /> <span>Free Shipping over ₹500</span>
             </div>
-            <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-forest font-dm">
-              <ShieldCheck className="text-forest shrink-0" size={18} /> <span>100% Secure Checkout</span>
+            <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-spice font-dm">
+              <ShieldCheck className="text-spice shrink-0" size={18} /> <span>100% Secure Checkout</span>
             </div>
           </div>
         </div>
@@ -217,37 +217,37 @@ function ProductDetails() {
 
       {/* TABS */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 mt-14 sm:mt-20">
-        <div className="flex border-b border-sand/20 dark:border-forest-light/30 overflow-x-auto no-scrollbar">
+        <div className="flex border-b border-spice/20 dark:border-spice/30 overflow-x-auto no-scrollbar">
           {["description", "specifications", "reviews"].map((tab) => (
-            <button key={tab} onClick={() => setActiveTab(tab)} className={`pb-3 sm:pb-4 px-3 sm:px-6 text-[10px] sm:text-sm font-dm font-bold uppercase tracking-wider whitespace-nowrap transition-all ${activeTab === tab ? "border-b-2 border-forest text-forest" : "text-forest hover:text-forest dark:hover:text-cream"}`}>
+            <button key={tab} onClick={() => setActiveTab(tab)} className={`pb-3 sm:pb-4 px-3 sm:px-6 text-[10px] sm:text-sm font-dm font-bold uppercase tracking-wider whitespace-nowrap transition-all ${activeTab === tab ? "border-b-2 border-forest text-spice" : "text-spice hover:text-spice dark:hover:text-cream"}`}>
               {tab} {tab === "reviews" && `(${reviews.length})`}
             </button>
           ))}
         </div>
         <div className="py-6 sm:py-8 min-h-[200px]">
           {activeTab === "description" && (
-            <p className="text-sm sm:text-base md:text-lg leading-relaxed text-forest dark:text-cream/70 font-dm max-w-4xl">{product.description}</p>
+            <p className="text-sm sm:text-base md:text-lg leading-relaxed text-spice dark:text-cream/70 font-dm max-w-4xl">{product.description}</p>
           )}
           {activeTab === "specifications" && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-y-4 text-xs sm:text-sm text-forest dark:text-cream/70 font-dm max-w-3xl bg-cream-light dark:bg-charcoal-light p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl">
-              <p><strong className="text-forest dark:text-cream block mb-0.5 sm:mb-1">Brand</strong> {product.brand || "Chavan Brothers"}</p>
-              <p><strong className="text-forest dark:text-cream block mb-0.5 sm:mb-1">Category</strong> {product.category || "Spice"}</p>
-              <p><strong className="text-forest dark:text-cream block mb-0.5 sm:mb-1">SKU</strong> {selectedVariant?._id || product._id}</p>
-              <p><strong className="text-forest dark:text-cream block mb-0.5 sm:mb-1">Expiry</strong> {product.expiryDate || "24 months from Mfg"}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-y-4 text-xs sm:text-sm text-spice dark:text-cream/70 font-dm max-w-3xl bg-cream-light dark:bg-charcoal-light p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl">
+              <p><strong className="text-spice dark:text-cream block mb-0.5 sm:mb-1">Brand</strong> {product.brand || "Chavan Brothers"}</p>
+              <p><strong className="text-spice dark:text-cream block mb-0.5 sm:mb-1">Category</strong> {product.category || "Spice"}</p>
+              <p><strong className="text-spice dark:text-cream block mb-0.5 sm:mb-1">SKU</strong> {selectedVariant?._id || product._id}</p>
+              <p><strong className="text-spice dark:text-cream block mb-0.5 sm:mb-1">Expiry</strong> {product.expiryDate || "24 months from Mfg"}</p>
             </div>
           )}
           {activeTab === "reviews" && (
             <div className="space-y-4 sm:space-y-6 max-w-4xl">
               {reviews.map((review) => (
-                <div key={review.id} className="bg-white dark:bg-charcoal-light p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-sm border border-sand/20 dark:border-forest-light/30">
+                <div key={review.id} className="bg-white dark:bg-charcoal-light p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-sm border border-spice/20 dark:border-spice/30">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="font-bold text-sm sm:text-base text-forest dark:text-cream">{review.user}</span>
-                    <span className="text-xs sm:text-sm text-forest">{review.date}</span>
+                    <span className="font-bold text-sm sm:text-base text-spice dark:text-cream">{review.user}</span>
+                    <span className="text-xs sm:text-sm text-spice">{review.date}</span>
                   </div>
                   <div className="flex text-yellow-500 mb-2 sm:mb-3">
                     {[...Array(5)].map((_, i) => <Star key={i} size={14} fill={i < review.rating ? "currentColor" : "none"} />)}
                   </div>
-                  <p className="text-xs sm:text-sm text-forest dark:text-cream/70">{review.comment}</p>
+                  <p className="text-xs sm:text-sm text-spice dark:text-cream/70">{review.comment}</p>
                 </div>
               ))}
             </div>
@@ -257,15 +257,15 @@ function ProductDetails() {
 
       {relatedProducts.length > 0 && (
         <div className="mx-auto max-w-7xl px-4 sm:px-6 mt-14 sm:mt-20">
-          <h2 className="text-lg sm:text-xl md:text-2xl font-playfair font-bold text-forest dark:text-cream mb-6 sm:mb-8">You May Also Like</h2>
+          <h2 className="text-lg sm:text-xl md:text-2xl font-playfair font-bold text-spice dark:text-cream mb-6 sm:mb-8">You May Also Like</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
             {relatedProducts.map((item) => (
-              <Link to={`/product/${item.id}`} key={item.id} className="group block bg-white dark:bg-charcoal-light p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-sm border border-sand/20 dark:border-forest-light/30 transition-all hover:-translate-y-1 hover:shadow-xl">
+              <Link to={`/product/${item.id}`} key={item.id} className="group block bg-white dark:bg-charcoal-light p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-sm border border-spice/20 dark:border-spice/30 transition-all hover:-translate-y-1 hover:shadow-xl">
                 <div className="aspect-square bg-sand/20 dark:bg-charcoal rounded-lg sm:rounded-xl mb-3 sm:mb-4 overflow-hidden">
                   <img src={item.image} alt={item.name} className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-110 transition-transform duration-500" />
                 </div>
-                <h3 className="font-bold text-xs sm:text-sm text-forest dark:text-cream truncate font-dm">{item.name}</h3>
-                <p className="text-forest font-bold text-xs sm:text-sm mt-0.5">₹{item.price}</p>
+                <h3 className="font-bold text-xs sm:text-sm text-spice dark:text-cream truncate font-dm">{item.name}</h3>
+                <p className="text-spice font-bold text-xs sm:text-sm mt-0.5">₹{item.price}</p>
               </Link>
             ))}
           </div>
