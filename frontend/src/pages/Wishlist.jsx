@@ -59,13 +59,13 @@ function Wishlist() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center">
           <Heart className="mx-auto text-forest dark:text-sage" size={40} strokeWidth={1.5} />
-          <h1 className="mt-4 text-4xl md:text-5xl font-playfair text-forest dark:text-cream">My Wishlist</h1>
+          <h1 className="mt-4 text-4xl md:text-5xl font-heading text-forest dark:text-cream">My Wishlist</h1>
         </div>
 
         {items.length === 0 ? (
           <div className="py-20 text-center">
-            <p className="text-lg text-forest dark:text-cream/60 font-dm">Your Wishlist is empty.</p>
-            <Link to="/products" className="mt-4 inline-block font-dm font-medium text-forest dark:text-sage hover:text-forest-light">
+            <p className="text-lg text-forest dark:text-cream/60 font-body">Your Wishlist is empty.</p>
+            <Link to="/products" className="mt-4 inline-block font-body font-medium text-forest dark:text-sage hover:text-forest-light">
               Browse Products →
             </Link>
           </div>
@@ -75,11 +75,11 @@ function Wishlist() {
               <div key={product._id} className="overflow-hidden rounded-[28px] bg-white dark:bg-charcoal-light shadow-sm border border-sand/20 dark:border-forest-light/30 transition hover:shadow-xl">
                 <img src={product.image} alt={product.name} loading="lazy" decoding="async" className="h-56 w-full object-cover" />
                 <div className="p-6">
-                  <h2 className="font-playfair text-2xl text-charcoal dark:text-cream">{product.name}</h2>
-                  <p className="mt-1 text-sm text-smoke font-dm">{product.category}</p>
+                  <h2 className="font-heading text-2xl text-charcoal dark:text-cream">{product.name}</h2>
+                  <p className="mt-1 text-sm text-smoke font-body">{product.category}</p>
                   <p className="mt-2 text-xl font-bold text-spice dark:text-cream">₹{product.price}</p>
                   <div className="mt-5 flex gap-3">
-                    <button onClick={() => handleAddToCart(product)} className="flex-1 rounded-xl bg-spice px-4 py-3 font-dm font-semibold text-cream transition hover:bg-spice-light flex items-center justify-center gap-2">
+                    <button onClick={() => handleAddToCart(product)} className="flex-1 rounded-xl bg-spice px-4 py-3 font-body font-semibold text-cream transition hover:bg-spice-light flex items-center justify-center gap-2">
                       <ShoppingCart size={18} /> Add to Cart
                     </button>
                     <button onClick={() => handleRemove(product._id)} className="rounded-xl bg-red-600 p-3 text-white transition hover:bg-red-700">
@@ -93,7 +93,7 @@ function Wishlist() {
         )}
 
         <div className="mt-10 text-center">
-          <Link to="/products" className="font-dm font-medium text-spice dark:text-cream hover:text-spice-light">
+          <Link to="/products" className="font-body font-medium text-spice dark:text-cream hover:text-spice-light">
             Continue Shopping →
           </Link>
         </div>

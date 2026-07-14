@@ -1,7 +1,7 @@
 const Table = ({ data, columns }) => {
   if (!data || data.length === 0) {
     return (
-      <div className="text-center py-12 text-gray-500 dark:text-cream/50 font-dm text-sm">
+      <div className="text-center py-12 text-gray-500 dark:text-cream/50 font-body text-sm">
         No data available
       </div>
     );

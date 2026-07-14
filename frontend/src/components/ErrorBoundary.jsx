@@ -18,15 +18,15 @@ class ErrorBoundary extends Component {
     if (this.state.hasError) {
       return (
         <div className="flex min-h-screen flex-col items-center justify-center gap-4 px-4 text-center">
-          <h1 className="text-4xl font-playfair text-forest dark:text-cream">
+          <h1 className="text-4xl font-heading text-forest dark:text-cream">
             Something went wrong
           </h1>
-          <p className="text-forest/70 dark:text-cream/60 font-dm">
+          <p className="text-forest/70 dark:text-cream/60 font-body">
             Please refresh the page or try again later.
           </p>
           <button
             onClick={() => window.location.reload()}
-            className="rounded-full bg-forest px-6 py-3 text-sm text-cream font-dm font-medium hover:bg-forest-light transition"
+            className="rounded-full bg-forest px-6 py-3 text-sm text-cream font-body font-medium hover:bg-forest-light transition"
           >
             Refresh Page
           </button>

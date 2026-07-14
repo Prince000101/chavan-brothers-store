@@ -59,7 +59,7 @@ const Reviews = () => {
             <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-forest"></div>
           </div>
         ) : filtered.length === 0 ? (
-          <div className="text-center py-12 text-gray-500 dark:text-cream/50 font-dm text-sm">
+          <div className="text-center py-12 text-gray-500 dark:text-cream/50 font-body text-sm">
             {search ? "No reviews match your search" : "No reviews yet"}
           </div>
         ) : (

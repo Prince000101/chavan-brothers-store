@@ -73,7 +73,7 @@ const Coupons = () => {
             <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-forest"></div>
           </div>
         ) : coupons.length === 0 ? (
-          <div className="text-center py-12 text-gray-500 dark:text-cream/50 font-dm text-sm">No coupons yet</div>
+          <div className="text-center py-12 text-gray-500 dark:text-cream/50 font-body text-sm">No coupons yet</div>
         ) : (
           <div className="overflow-x-auto rounded-2xl bg-white dark:bg-charcoal-light shadow-sm border border-gray-200 dark:border-forest-light/30">
             <table className="w-full text-sm">

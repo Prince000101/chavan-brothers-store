@@ -39,7 +39,7 @@ const Sidebar = () => {
       `}>
         <div className="flex items-center gap-2.5 p-5 border-b border-cream/10">
           <Leaf size={24} strokeWidth={1.5} />
-          <span className="text-lg font-playfair font-semibold">Chavan Brothers Admin</span>
+          <span className="text-lg font-heading font-semibold">Chavan Brothers Admin</span>
         </div>
         <nav className="flex-1 overflow-y-auto py-4">
           {navItems.map((item) => {
@@ -49,7 +49,7 @@ const Sidebar = () => {
                 key={item.path}
                 to={item.path}
                 onClick={() => setSidebarOpen(false)}
-                className={`flex items-center gap-3 px-5 py-3 mx-2 rounded-xl text-sm font-dm font-medium transition-all ${
+                className={`flex items-center gap-3 px-5 py-3 mx-2 rounded-xl text-sm font-body font-medium transition-all ${
                   isActive
                     ? "bg-cream/15 text-cream"
                     : "text-cream/80 hover:bg-cream/10 hover:text-cream"

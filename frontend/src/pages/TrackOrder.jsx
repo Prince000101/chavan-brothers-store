@@ -40,25 +40,25 @@ function TrackOrder() {
       <div className="mx-auto max-w-2xl">
         <div className="mb-8 sm:mb-10 text-center">
           <Package className="mx-auto text-forest dark:text-sage" size={36} strokeWidth={1.5} />
-          <h1 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-playfair text-forest dark:text-cream">Track Your Order</h1>
-          <p className="mt-2 text-sm sm:text-base text-forest dark:text-cream/60 font-dm">Enter your order ID to check the status</p>
+          <h1 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-heading text-forest dark:text-cream">Track Your Order</h1>
+          <p className="mt-2 text-sm sm:text-base text-forest dark:text-cream/60 font-body">Enter your order ID to check the status</p>
         </div>
 
         <div className="flex gap-2 sm:gap-3">
           <input value={orderId} onChange={(e) => setOrderId(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleSearch()} placeholder="Enter Order ID"
-            className="flex-1 rounded-xl sm:rounded-2xl border border-sand/30 dark:border-forest-light/30 bg-white dark:bg-charcoal-light p-3 sm:p-4 text-sm sm:text-base text-forest dark:text-cream outline-none transition focus:border-forest font-dm" />
-          <button onClick={() => handleSearch()} disabled={loading} className="rounded-xl sm:rounded-2xl bg-forest px-5 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-dm font-semibold text-cream transition hover:bg-forest-light disabled:opacity-50 flex items-center gap-1 sm:gap-2">
+            className="flex-1 rounded-xl sm:rounded-2xl border border-sand/30 dark:border-forest-light/30 bg-white dark:bg-charcoal-light p-3 sm:p-4 text-sm sm:text-base text-forest dark:text-cream outline-none transition focus:border-forest font-body" />
+          <button onClick={() => handleSearch()} disabled={loading} className="rounded-xl sm:rounded-2xl bg-forest px-5 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-body font-semibold text-cream transition hover:bg-forest-light disabled:opacity-50 flex items-center gap-1 sm:gap-2">
             <Search size={16} /> {loading ? "..." : "Track"}
           </button>
         </div>
 
-        {error && <p className="mt-4 text-center text-red-500 font-dm">{error}</p>}
+        {error && <p className="mt-4 text-center text-red-500 font-body">{error}</p>}
 
         {order && (
           <div className="mt-8 sm:mt-10 rounded-[20px] sm:rounded-[28px] bg-white dark:bg-charcoal-light p-5 sm:p-6 md:p-8 shadow-sm border border-sand/20 dark:border-forest-light/30">
             <div className="mb-4 sm:mb-6 border-b border-sand/20 dark:border-forest-light/30 pb-4 sm:pb-6">
-              <h2 className="text-xs sm:text-sm font-dm text-forest dark:text-cream/60">Order ID</h2>
-              <p className="text-base sm:text-lg md:text-2xl font-bold text-forest dark:text-cream font-dm break-all">{order._id}</p>
+              <h2 className="text-xs sm:text-sm font-body text-forest dark:text-cream/60">Order ID</h2>
+              <p className="text-base sm:text-lg md:text-2xl font-bold text-forest dark:text-cream font-body break-all">{order._id}</p>
               <p className="mt-1 sm:mt-2 text-lg sm:text-xl md:text-2xl font-bold text-forest dark:text-sage">₹{order.totalPrice}</p>
             </div>
 
@@ -72,8 +72,8 @@ function TrackOrder() {
                     {i === 3 && <CheckCircle size={14} />}
                   </div>
                   <div>
-                    <p className={`font-dm font-semibold text-sm sm:text-base ${i <= currentStatusIndex ? "text-forest" : "text-forest dark:text-cream/60"}`}>{step}</p>
-                    {i === currentStatusIndex && <p className="text-xs sm:text-sm text-forest font-dm">Current</p>}
+                    <p className={`font-body font-semibold text-sm sm:text-base ${i <= currentStatusIndex ? "text-forest" : "text-forest dark:text-cream/60"}`}>{step}</p>
+                    {i === currentStatusIndex && <p className="text-xs sm:text-sm text-forest font-body">Current</p>}
                   </div>
                 </div>
               ))}
@@ -81,8 +81,8 @@ function TrackOrder() {
 
             {order.shippingAddress && (
               <div className="mt-6 sm:mt-8 border-t border-sand/20 dark:border-forest-light/30 pt-4 sm:pt-6">
-                <h3 className="mb-2 sm:mb-3 font-playfair text-base sm:text-lg text-forest dark:text-cream">Shipping Address</h3>
-                <p className="text-forest dark:text-cream/60 font-dm text-xs sm:text-sm">
+                <h3 className="mb-2 sm:mb-3 font-heading text-base sm:text-lg text-forest dark:text-cream">Shipping Address</h3>
+                <p className="text-forest dark:text-cream/60 font-body text-xs sm:text-sm">
                   {order.shippingAddress.name}<br />
                   {order.shippingAddress.address}, {order.shippingAddress.city}<br />
                   {order.shippingAddress.phone} — {order.shippingAddress.postalCode}
@@ -93,7 +93,7 @@ function TrackOrder() {
         )}
 
         <div className="mt-6 sm:mt-8 text-center">
-          <Link to="/products" className="text-sm sm:text-base font-dm font-medium text-forest dark:text-sage hover:text-forest-light">Continue Shopping →</Link>
+          <Link to="/products" className="text-sm sm:text-base font-body font-medium text-forest dark:text-sage hover:text-forest-light">Continue Shopping →</Link>
         </div>
       </div>
     </div>

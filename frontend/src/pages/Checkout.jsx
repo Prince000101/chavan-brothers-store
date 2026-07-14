@@ -62,26 +62,26 @@ function Checkout() {
         url="https://chavanbrothers.com/checkout"
       />
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-playfair text-forest dark:text-cream mb-8 sm:mb-10">Checkout</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading text-forest dark:text-cream mb-8 sm:mb-10">Checkout</h1>
 
         <div className="grid lg:grid-cols-3 gap-6 sm:gap-10">
           {/* FORM */}
           <div className="lg:col-span-2 bg-white dark:bg-charcoal-light rounded-[20px] sm:rounded-[28px] p-5 sm:p-6 md:p-8 shadow-sm border border-sand/20 dark:border-forest-light/30">
-            <h2 className="text-xl sm:text-2xl font-playfair text-forest dark:text-cream mb-4 sm:mb-6">Shipping Details</h2>
+            <h2 className="text-xl sm:text-2xl font-heading text-forest dark:text-cream mb-4 sm:mb-6">Shipping Details</h2>
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
-              <input name="name" placeholder="Full Name" onChange={handleChange} className="rounded-xl sm:rounded-2xl border border-sand/30 dark:border-forest-light/30 bg-transparent px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base outline-none text-forest dark:text-cream font-dm transition focus:border-forest" />
-              <input name="email" placeholder="Email" onChange={handleChange} className="rounded-xl sm:rounded-2xl border border-sand/30 dark:border-forest-light/30 bg-transparent px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base outline-none text-forest dark:text-cream font-dm transition focus:border-forest" />
-              <input name="phone" placeholder="Phone Number" onChange={handleChange} className="rounded-xl sm:rounded-2xl border border-sand/30 dark:border-forest-light/30 bg-transparent px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base outline-none text-forest dark:text-cream font-dm transition focus:border-forest" />
-              <input name="city" placeholder="City" onChange={handleChange} className="rounded-xl sm:rounded-2xl border border-sand/30 dark:border-forest-light/30 bg-transparent px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base outline-none text-forest dark:text-cream font-dm transition focus:border-forest" />
-              <input name="pincode" placeholder="Pincode" onChange={handleChange} className="rounded-xl sm:rounded-2xl border border-sand/30 dark:border-forest-light/30 bg-transparent px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base outline-none text-forest dark:text-cream font-dm transition focus:border-forest" />
-              <textarea name="address" placeholder="Full Address" rows="3" onChange={handleChange} className="sm:col-span-2 rounded-xl sm:rounded-2xl border border-sand/30 dark:border-forest-light/30 bg-transparent px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base outline-none text-forest dark:text-cream font-dm transition focus:border-forest" />
+              <input name="name" placeholder="Full Name" onChange={handleChange} className="rounded-xl sm:rounded-2xl border border-sand/30 dark:border-forest-light/30 bg-transparent px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base outline-none text-forest dark:text-cream font-body transition focus:border-forest" />
+              <input name="email" placeholder="Email" onChange={handleChange} className="rounded-xl sm:rounded-2xl border border-sand/30 dark:border-forest-light/30 bg-transparent px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base outline-none text-forest dark:text-cream font-body transition focus:border-forest" />
+              <input name="phone" placeholder="Phone Number" onChange={handleChange} className="rounded-xl sm:rounded-2xl border border-sand/30 dark:border-forest-light/30 bg-transparent px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base outline-none text-forest dark:text-cream font-body transition focus:border-forest" />
+              <input name="city" placeholder="City" onChange={handleChange} className="rounded-xl sm:rounded-2xl border border-sand/30 dark:border-forest-light/30 bg-transparent px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base outline-none text-forest dark:text-cream font-body transition focus:border-forest" />
+              <input name="pincode" placeholder="Pincode" onChange={handleChange} className="rounded-xl sm:rounded-2xl border border-sand/30 dark:border-forest-light/30 bg-transparent px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base outline-none text-forest dark:text-cream font-body transition focus:border-forest" />
+              <textarea name="address" placeholder="Full Address" rows="3" onChange={handleChange} className="sm:col-span-2 rounded-xl sm:rounded-2xl border border-sand/30 dark:border-forest-light/30 bg-transparent px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base outline-none text-forest dark:text-cream font-body transition focus:border-forest" />
             </div>
           </div>
 
           {/* SUMMARY */}
           <div className="bg-white dark:bg-charcoal-light rounded-[20px] sm:rounded-[28px] p-5 sm:p-6 md:p-8 shadow-sm border border-sand/20 dark:border-forest-light/30 h-fit sticky top-24">
-            <h2 className="text-xl sm:text-2xl font-playfair text-forest dark:text-cream mb-4 sm:mb-6">Order Summary</h2>
-            <div className="space-y-3 sm:space-y-4 font-dm">
+            <h2 className="text-xl sm:text-2xl font-heading text-forest dark:text-cream mb-4 sm:mb-6">Order Summary</h2>
+            <div className="space-y-3 sm:space-y-4 font-body">
               {cart.map((item) => (
                 <div key={item._id} className="flex justify-between text-xs sm:text-sm text-forest dark:text-cream/70">
                   <span className="truncate pr-2">{item.name} × {item.qty}</span>
@@ -89,7 +89,7 @@ function Checkout() {
                 </div>
               ))}
             </div>
-            <div className="mt-4 sm:mt-6 space-y-2 sm:space-y-3 text-xs sm:text-sm font-dm text-forest dark:text-cream/70">
+            <div className="mt-4 sm:mt-6 space-y-2 sm:space-y-3 text-xs sm:text-sm font-body text-forest dark:text-cream/70">
               <div className="flex justify-between"><span className="flex items-center gap-2"><Truck size={14} /> Shipping</span><span className="text-forest font-semibold">FREE</span></div>
               <div className="flex justify-between items-center"><span className="flex items-center gap-2"><ShieldCheck size={14} /> Secure</span><Leaf size={14} className="text-forest" /></div>
             </div>
@@ -98,7 +98,7 @@ function Checkout() {
                 <span>Total</span>
                 <span className="text-forest dark:text-sage">₹{totalPrice}</span>
               </div>
-              <button onClick={handlePlaceOrder} disabled={loading} className="w-full mt-4 sm:mt-6 rounded-full bg-forest py-3.5 sm:py-4 text-sm sm:text-base text-cream font-dm font-bold transition hover:bg-forest-light disabled:opacity-50">
+              <button onClick={handlePlaceOrder} disabled={loading} className="w-full mt-4 sm:mt-6 rounded-full bg-forest py-3.5 sm:py-4 text-sm sm:text-base text-cream font-body font-bold transition hover:bg-forest-light disabled:opacity-50">
                 {loading ? "Placing Order..." : "Place Order"}
               </button>
             </div>

@@ -22,7 +22,7 @@ const DashboardStats = ({ stats = [] }) => {
             <div className="mx-auto mb-2 w-10 h-10 rounded-lg bg-forest/10 dark:bg-sage/10 flex items-center justify-center">
               <Icon size={18} className="text-forest dark:text-sage" />
             </div>
-            <h3 className="text-xs sm:text-sm font-dm font-medium text-gray-500 dark:text-cream/60 truncate">
+            <h3 className="text-xs sm:text-sm font-body font-medium text-gray-500 dark:text-cream/60 truncate">
               {stat.label}
             </h3>
             <p className="text-lg sm:text-xl font-bold text-forest dark:text-sage mt-0.5">

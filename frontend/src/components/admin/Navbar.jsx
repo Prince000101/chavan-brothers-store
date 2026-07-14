@@ -20,7 +20,7 @@ const Navbar = () => {
         </button>
         <button
           onClick={logout}
-          className="flex items-center gap-2 bg-forest text-cream px-3 sm:px-4 py-2 rounded-xl text-sm font-dm font-medium hover:bg-forest-light transition-all"
+          className="flex items-center gap-2 bg-forest text-cream px-3 sm:px-4 py-2 rounded-xl text-sm font-body font-medium hover:bg-forest-light transition-all"
         >
           <LogOut size={16} />
           <span className="hidden sm:inline">Logout</span>

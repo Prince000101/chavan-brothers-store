@@ -33,14 +33,14 @@ function Cart() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-8 sm:mb-10 flex items-center gap-2 sm:gap-3">
           <ShoppingBag className="h-6 w-6 sm:h-8 sm:w-8 text-forest" strokeWidth={1.5} />
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-playfair text-forest dark:text-cream">Shopping Cart</h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading text-forest dark:text-cream">Shopping Cart</h1>
         </div>
 
         {cart.length === 0 ? (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-16 sm:py-24 text-center">
-            <h2 className="text-2xl sm:text-3xl font-playfair text-forest dark:text-cream">Your Cart is Empty</h2>
-            <p className="mt-2 sm:mt-3 text-sm sm:text-base text-forest dark:text-cream/60 font-dm">Add some spices to continue shopping.</p>
-            <Link to="/products" className="mt-6 sm:mt-8 inline-block rounded-full bg-forest px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-dm font-semibold text-cream transition hover:bg-forest-light hover:scale-105">
+            <h2 className="text-2xl sm:text-3xl font-heading text-forest dark:text-cream">Your Cart is Empty</h2>
+            <p className="mt-2 sm:mt-3 text-sm sm:text-base text-forest dark:text-cream/60 font-body">Add some spices to continue shopping.</p>
+            <Link to="/products" className="mt-6 sm:mt-8 inline-block rounded-full bg-forest px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-body font-semibold text-cream transition hover:bg-forest-light hover:scale-105">
               Continue Shopping
             </Link>
           </motion.div>
@@ -57,7 +57,7 @@ function Cart() {
                 >
                   <img src={item.image} alt={item.name} className="h-24 w-24 sm:h-28 sm:w-28 md:h-36 md:w-36 rounded-xl sm:rounded-2xl object-cover" />
                   <div className="flex-1 text-center sm:text-left">
-                    <h2 className="text-lg sm:text-xl md:text-2xl font-playfair text-forest dark:text-cream">{item.name}</h2>
+                    <h2 className="text-lg sm:text-xl md:text-2xl font-heading text-forest dark:text-cream">{item.name}</h2>
                     <p className="mt-1 sm:mt-2 text-base sm:text-lg font-bold text-forest dark:text-sage">₹{item.price}</p>
                     <div className="mt-3 sm:mt-5 flex items-center justify-center sm:justify-start gap-2 sm:gap-3">
                       <button onClick={() => decreaseQty(item._id)} className="rounded-full bg-sand/30 dark:bg-forest-light/30 p-1.5 sm:p-2 text-forest dark:text-cream hover:bg-sand/50">
@@ -80,8 +80,8 @@ function Cart() {
             </div>
 
             <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} className="sticky top-24 h-fit rounded-[20px] sm:rounded-[28px] bg-white dark:bg-charcoal-light p-5 sm:p-6 md:p-8 shadow-sm border border-sand/20 dark:border-forest-light/30">
-              <h2 className="mb-4 sm:mb-6 text-2xl sm:text-3xl font-playfair text-forest dark:text-cream">Order Summary</h2>
-              <div className="space-y-3 sm:space-y-5 font-dm text-sm sm:text-base text-forest dark:text-cream/70">
+              <h2 className="mb-4 sm:mb-6 text-2xl sm:text-3xl font-heading text-forest dark:text-cream">Order Summary</h2>
+              <div className="space-y-3 sm:space-y-5 font-body text-sm sm:text-base text-forest dark:text-cream/70">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
                   <span className="text-forest dark:text-cream font-medium">₹{totalPrice}</span>
@@ -99,24 +99,24 @@ function Cart() {
               </div>
 
               <div className="mt-6 sm:mt-8">
-                <label className="mb-2 sm:mb-3 flex items-center gap-2 font-dm font-semibold text-sm sm:text-base text-forest dark:text-cream">
+                <label className="mb-2 sm:mb-3 flex items-center gap-2 font-body font-semibold text-sm sm:text-base text-forest dark:text-cream">
                   <Tag className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> Apply Coupon
                 </label>
                 <div className="flex gap-2">
-                  <input value={coupon} onChange={(e) => setCoupon(e.target.value)} placeholder="SPICE10" className="w-full rounded-xl sm:rounded-2xl border border-sand/30 dark:border-forest-light/30 bg-transparent px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base outline-none text-forest dark:text-cream font-dm transition focus:border-forest" />
-                  <button onClick={applyCoupon} className="rounded-xl sm:rounded-2xl bg-forest px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm text-cream font-dm font-medium transition hover:bg-forest-light">
+                  <input value={coupon} onChange={(e) => setCoupon(e.target.value)} placeholder="SPICE10" className="w-full rounded-xl sm:rounded-2xl border border-sand/30 dark:border-forest-light/30 bg-transparent px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base outline-none text-forest dark:text-cream font-body transition focus:border-forest" />
+                  <button onClick={applyCoupon} className="rounded-xl sm:rounded-2xl bg-forest px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm text-cream font-body font-medium transition hover:bg-forest-light">
                     Apply
                   </button>
                 </div>
               </div>
 
               <div className="mt-6 sm:mt-8 border-t border-sand/20 dark:border-forest-light/30 pt-6 sm:pt-8">
-                <div className="flex justify-between text-base sm:text-lg font-dm mb-4 sm:mb-6">
+                <div className="flex justify-between text-base sm:text-lg font-body mb-4 sm:mb-6">
                   <span className="text-forest">Total</span>
                   <span className="text-xl sm:text-2xl font-bold text-forest dark:text-sage">₹{totalPrice - discount}</span>
                 </div>
                 <Link to="/checkout">
-                  <button className="w-full rounded-full bg-forest py-3.5 sm:py-4 text-sm sm:text-base text-cream font-dm font-bold transition hover:bg-forest-light">
+                  <button className="w-full rounded-full bg-forest py-3.5 sm:py-4 text-sm sm:text-base text-cream font-body font-bold transition hover:bg-forest-light">
                     Proceed to Checkout
                   </button>
                 </Link>

@@ -50,7 +50,7 @@ const Dashboard = () => {
   if (error) {
     return (
       <AdminLayout>
-        <div className="text-center py-12 text-red-500 font-dm">{error}</div>
+        <div className="text-center py-12 text-red-500 font-body">{error}</div>
       </AdminLayout>
     );
   }

@@ -55,7 +55,7 @@ const Login = () => {
       >
         <div className="flex items-center justify-center gap-2.5 mb-2">
           <Leaf className="text-forest dark:text-sage" size={28} strokeWidth={1.5} />
-          <span className="text-2xl font-playfair font-semibold text-forest dark:text-cream">Chavan Brothers</span>
+          <span className="text-2xl font-heading font-semibold text-forest dark:text-cream">Chavan Brothers</span>
         </div>
         <h2 className="text-xl font-bold mb-6 text-center text-gray-800 dark:text-cream">Admin Login</h2>
         <input
