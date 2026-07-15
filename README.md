@@ -4,14 +4,14 @@ Full-stack spice e-commerce app built with React (Vite) + Node.js/Express + Mong
 
 ---
 
-## URLs (Local Dev)
+## Live Demo
 
-| Service      | URL                              |
-|--------------|----------------------------------|
-| Frontend     | http://localhost:5173            |
-| Backend API  | http://localhost:5000            |
-| Admin Panel  | http://localhost:5173/admin      |
-| Admin Login  | http://localhost:5173/admin/login |
+| URL | Link |
+|---|---|
+| **Frontend** | https://chavan-brothers-store.vercel.app/ |
+| **Backend API** | https://chavan-brothers-store.onrender.com/api/products |
+| **Admin Panel** | https://chavan-brothers-store.vercel.app/admin |
+| **Backend Images** | https://chavan-brothers-store.onrender.com/uploads/01.jpg |
 
 ---
 
@@ -42,12 +42,11 @@ No default user is seeded. Users must **register themselves** at `/register` on 
 ### 1. Clone & Install
 
 ```bash
-git clone <repo-url>
-cd Chavan-Brothers
+git clone https://github.com/Prince000101/chavan-brothers-store.git
+cd chavan-brothers-store
 
 # Backend
 cd backend
-cp .env.example .env   # then edit .env with your values
 npm install
 
 # Frontend
@@ -58,12 +57,12 @@ npm install
 ### 2. Configure `backend/.env`
 
 ```env
-PORT=5000
-MONGO_URI=mongodb+srv://<user>:<pass>@cluster.mongodb.net/ChavanBrothers
-JWT_SECRET=<generate with: openssl rand -hex 64>
+PORT=5001
+MONGO_URI=mongodb+srv://<REDACTED>@cluster.mongodb.net/<REDACTED>
+JWT_SECRET=REDACTED_JWT_SECRET
 ADMIN_PASSWORD=Admin@123
 ADMIN_EMAIL=prince@creatordev.in
-CLIENT_URL=http://localhost:5173
+CLIENT_URL=http://localhost:3001
 ```
 
 ### 3. Seed Database & Run
@@ -72,11 +71,11 @@ CLIENT_URL=http://localhost:5173
 # Terminal 1 — Backend
 cd backend
 npm run seed    # creates admin account + sample products
-npm start       # http://localhost:5000
+npm start       # http://localhost:5001
 
 # Terminal 2 — Frontend
 cd frontend
-npm run dev     # http://localhost:5173
+npm run dev     # http://localhost:3001
 ```
 
 ---
@@ -166,12 +165,12 @@ npm run dev     # http://localhost:5173
 ## Environment Variables (`backend/.env`)
 
 ```env
-PORT=5000
-MONGO_URI=mongodb+srv://<user>:<pass>@cluster.mongodb.net/ChavanBrothers
-JWT_SECRET=<random-64-hex>
+PORT=5001
+MONGO_URI=mongodb+srv://<REDACTED>@cluster.mongodb.net/<REDACTED>
+JWT_SECRET=REDACTED_JWT_SECRET
 ADMIN_PASSWORD=Admin@123
 ADMIN_EMAIL=prince@creatordev.in
-CLIENT_URL=http://localhost:5173
+CLIENT_URL=http://localhost:3001
 ```
 
 ---
@@ -195,15 +194,37 @@ CLIENT_URL=http://localhost:5173
 
 ## Deployment
 
-### Free Tier
-| Service          | Role     | Cost  |
-|------------------|----------|-------|
-| Vercel           | Frontend | Free  |
-| Render           | Backend  | Free  |
-| MongoDB Atlas    | Database | Free  |
+| Service | Role | URL | Cost |
+|---|---|---|---|
+| Vercel | Frontend | https://chavan-brothers-store.vercel.app | Free |
+| Render | Backend | https://chavan-brothers-store.onrender.com | Free |
+| MongoDB Atlas | Database | Cloud hosted | Free |
 
-### Cheap VPS ($5-6/mo)
-Hetzner CX22, DigitalOcean Basic, or Linode Nanode. Use `pm2` or `docker-compose`.
+### Environment Variables (Render)
+
+| Variable | Value |
+|---|---|
+| `MONGO_URI` | `mongodb+srv://<REDACTED>@cluster.mongodb.net/<REDACTED>` |
+| `PORT` | `5001` |
+| `BRAND_NAME` | `Chavan Brothers` |
+| `JWT_SECRET` | `REDACTED_JWT_SECRET` |
+| `ADMIN_EMAIL` | `prince@creatordev.in` |
+| `ADMIN_PASSWORD` | `Admin@123` |
+| `CLIENT_URL` | `https://chavan-brothers-store.vercel.app` |
+
+### Vercel Configuration
+
+The `frontend/vercel.json` handles SPA routing and proxies API calls to the Render backend:
+
+```json
+{
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "https://chavan-brothers-store.onrender.com/api/:path*" },
+    { "source": "/uploads/:path*", "destination": "https://chavan-brothers-store.onrender.com/uploads/:path*" },
+    { "source": "/((?!assets/|favicon\\.svg|icons\\.svg|robots\\.txt|sitemap\\.xml).*)", "destination": "/index.html" }
+  ]
+}
+```
 
 ---
 
@@ -214,8 +235,8 @@ Hetzner CX22, DigitalOcean Basic, or Linode Nanode. Use `pm2` or `docker-compose
 | MongoDB timeout | Atlas free tier spins down — wait 20s and refresh |
 | Invalid login | Run `npm run seed` first |
 | Module not found | Run `npm install` in both `backend/` and `frontend/` |
-| Port in use | `lsof -ti:5000 \| xargs kill` (Linux/macOS) or `taskkill /PID <pid>` (Windows) |
-| Images not loading | Update product images to use hosted URLs or configure static file serving for `/images` |
+| Port in use | `lsof -ti:5001 \| xargs kill` (Linux/macOS) or `taskkill /PID <pid>` (Windows) |
+| Images not loading | Check that `uploads/` folder exists in `backend/` and is not in `.gitignore` |
 
 ---
 
