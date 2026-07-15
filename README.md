@@ -60,7 +60,7 @@ npm install
 PORT=5001
 MONGO_URI=mongodb+srv://<REDACTED>@cluster.mongodb.net/<REDACTED>
 JWT_SECRET=REDACTED_JWT_SECRET
-ADMIN_PASSWORD=Admin@123
+ADMIN_PASSWORD=<your-admin-password>
 ADMIN_EMAIL=prince@creatordev.in
 CLIENT_URL=http://localhost:3001
 ```
@@ -168,7 +168,7 @@ npm run dev     # http://localhost:3001
 PORT=5001
 MONGO_URI=mongodb+srv://<REDACTED>@cluster.mongodb.net/<REDACTED>
 JWT_SECRET=REDACTED_JWT_SECRET
-ADMIN_PASSWORD=Admin@123
+ADMIN_PASSWORD=<your-admin-password>
 ADMIN_EMAIL=prince@creatordev.in
 CLIENT_URL=http://localhost:3001
 ```
